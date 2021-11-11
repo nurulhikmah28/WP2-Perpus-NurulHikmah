@@ -34,9 +34,9 @@ class ModelBuku extends CI_Model
         $this->db->select_sum($field);
         if(!empty($where) && count($where) > 0){
             $this->db->where($where);
+            $this->db->from('buku');
+            return $this->db->get()->row($field);
         }
-        $this->db->from('buku');
-        return $this->db->get()->row($field);
     }
 
     //manajemen kategri
