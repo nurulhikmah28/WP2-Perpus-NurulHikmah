@@ -149,5 +149,14 @@ class Autentifikasi extends CI_Controller
         }
 
     }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+        $this->session->set_flashdata('pesan', '<div class="message message-success">Successfully logout! </div>');
+        redirect('autentifikasi');
+    }
+
 }
 ?>
